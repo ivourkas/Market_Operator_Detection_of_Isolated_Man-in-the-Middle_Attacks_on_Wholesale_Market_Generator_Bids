@@ -102,9 +102,9 @@ Raw data files and results folders are excluded due to size. Regenerate using:
 @article{mitm_market_detection,
   title={Market Operator Detection of Isolated Man-in-the-Middle Attacks 
          on Wholesale Market Generator Bids via Machine Learning},
-  author={},
-  journal={IEEE Transactions on Smart Grid},
-  year={2025}
+  author={...},
+  journal={...},
+  year={...}
 }
 ```
 

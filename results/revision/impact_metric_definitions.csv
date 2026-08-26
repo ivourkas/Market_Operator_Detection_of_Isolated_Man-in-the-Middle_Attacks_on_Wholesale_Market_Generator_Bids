@@ -1,0 +1,9 @@
+metric,plain_language,formula
+delta_cost_signed,Direction of the cost change. Positive means the attacked OPF is more expensive than the matching normal OPF; negative means it is cheaper.,fval_attacked - fval_normal
+delta_cost_abs,"Size of the cost change caused by the attack, ignoring whether the cost went up or down.",abs(fval_attacked - fval_normal)
+delta_cost_pct,"Cost change scaled by the normal cost for the same load profile, so systems and seasons are easier to compare.",delta_cost_abs / abs(fval_normal)
+dispatch_l1,Total fleet redispatch over the 24-hour day. This is the main proof that a one-generator attack can move the wider system.,"sum_g sum_h abs(Pg_attacked(g,h) - Pg_normal(g,h))"
+target_dispatch_change,How much the attacked generator itself moved across the day.,"sum_h abs(Pg_attacked(target,h) - Pg_normal(target,h))"
+non_target_dispatch_change,How much all other generators moved to compensate. This is the clean system-wide consequence metric.,"sum_{g != target} sum_h abs(Pg_attacked(g,h) - Pg_normal(g,h))"
+flow_l1,Total change in network flows over all modeled directed line-flow variables and hours.,"sum_l sum_h abs(flow_attacked(l,h) - flow_normal(l,h))"
+ramp_l1,Total change in hour-to-hour generator movement across the fleet. It separates a simple output shift from an attack that changes operating movement over the day.,"sum_g sum_h abs(ramp_attacked(g,h) - ramp_normal(g,h))"

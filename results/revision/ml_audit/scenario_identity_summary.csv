@@ -1,0 +1,4 @@
+system,scenario_family,train_rows,test_rows,train_attacks,expected_train_attacks,train_normals,expected_train_normals,test_attacks,expected_test_attacks,test_normals,expected_test_normals,counts_match,raw_row_index_nulls,raw_row_index_duplicates,unique_raw_rows
+N14,n14_n57_balanced_80_20,1600,400,800,800,800,800,200,200,200,200,True,0,0,2000
+N57,n14_n57_balanced_80_20,1600,400,800,800,800,800,200,200,200,200,True,0,0,2000
+N300,n300_balanced_80_20,1536,384,768,768,768,768,192,192,192,192,True,0,0,1920

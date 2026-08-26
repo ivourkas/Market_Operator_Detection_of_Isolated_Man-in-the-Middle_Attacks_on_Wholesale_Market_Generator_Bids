@@ -1,84 +1,157 @@
 # MiTM Attack Detection on Electricity Market Bids
 
-Detection framework for Man-in-the-Middle attacks on wholesale electricity market generator bids using machine learning.
+Detection framework for Man-in-the-Middle (MITM) attacks on wholesale
+electricity market generator bids using DC optimal power flow simulations and
+machine learning.
 
 ## Overview
 
-This repository implements a hybrid unsupervised-supervised anomaly detection framework that learns operational patterns from normal historical data to detect strategic bidding attacks on electricity markets. The framework addresses three deployment barriers: (1) detection without labeled attack data, (2) computational scalability, and (3) economic justification through ROI quantification.
+This repository implements a hybrid unsupervised-supervised detection workflow
+for bid-integrity attacks in wholesale electricity markets. The framework learns
+normal generator operating patterns from synthetic DC-OPF market-clearing data,
+builds OPF-derived operational features, and evaluates whether manipulated bid
+parameters leave detectable signatures in dispatch, flows, and operating costs.
+
+The project studies isolated single-generator, single-parameter attacks as the
+main benchmark. Additional analysis scripts support paired normal-attack impact
+assessment, feature-family ablations, and coordinated-attack stress tests.
 
 ## Attack Types
 
 | Type | Description | Detection Signal |
-|------|-------------|------------------|
-| **Ramp Rate** | Misrepresent ramping capabilities | Inter-temporal dispatch anomalies |
-| **Upper Limit** | Withhold generation capacity | Artificial scarcity patterns |
-| **Lower Limit** | Inflate minimum generation | Must-run constraint violations |
-| **Economic** | Manipulate cost coefficients | Merit order deviations |
+|---|---|---|
+| Ramp Rate | Misrepresent ramping capability | Inter-temporal dispatch anomalies |
+| Upper Limit | Withhold available generation capacity | Artificial scarcity and capacity-binding patterns |
+| Lower Limit | Inflate minimum generation requirements | Must-run behavior and fleet redispatch |
+| Economic Bid | Manipulate bid cost coefficients | Merit-order and cost-pattern deviations |
 
 ## Repository Structure
 
-```
-├── Cases/                          # IEEE PES-PGLib test case definitions
-├── OPF/                            # DC-OPF solver and attack injection
-├── data/                           # Generated datasets (not included)
-├── results/                        # Experiment outputs (not included)
+```text
+├── Cases/                         # IEEE PES-PGLib test case definitions
+├── OPF/                           # MATLAB DC-OPF and attack-injection routines
+├── data/                          # Generated synthetic OPF datasets
+├── scripts/                       # Reproducible analysis and evaluation scripts
 │
-├── 01_data_EDA.ipynb              # Data exploration (N14/N57/N300 variants)
-├── 02_Realistic_Scenarios.ipynb   # ML pipeline with temporal validation
-├── 03_Revenue_analysis_*.ipynb    # Economic impact quantification
+├── 01_data_EDA*.ipynb             # Data exploration and preprocessing notebooks
+├── 02_Realistic_Scenarios*.ipynb  # Main ML experiment notebooks
+├── 03_Revenue_analysis_*.ipynb    # Economic impact analysis notebooks
 │
-└── advanced_features_pure*.py     # Feature engineering modules
+├── advanced_features_pure*.py     # Feature engineering modules
+└── results/                       # Compact analysis outputs and figures
 ```
+
+Large solver outputs, derived transposed datasets, model pickle files, and
+legacy experiment folders are intentionally kept outside normal Git tracking.
+They can be regenerated from the MATLAB routines, notebooks, and Python scripts.
 
 ## Quick Start
 
-### 1. Generate Data
-Use the `Cases/` and `OPF/` folders to generate DC-OPF solutions with attack injections:
+### 1. Generate OPF Data
 
-```python
-# Data structure: 34,032 features + metadata for N300 system
-# Features: Bus powers × 24h + Voltage angles × 24h + Line flows × 24h
-# Metadata: fval, ssn (season), type_of_attack, gen_attacked
+Use the case files in `Cases/` with the MATLAB routines in `OPF/`.
+MATPOWER must be available on the MATLAB path.
+
+The generated datasets follow the same general structure:
+
+```text
+OPF variables over a 24-hour horizon
+metadata: fval, season, attack type, attacked generator
 ```
 
-### 2. Run Experiments
+### 2. Run Main ML Experiments
+
+The notebook workflow is organized by system size:
+
 ```bash
-# Execute ML pipeline for IEEE 300-bus system
+jupyter notebook 02_Realistic_Scenarios_N14_Giannis.ipynb
+jupyter notebook 02_Realistic_Scenarios_N57.ipynb
 jupyter notebook 02_Realistic_Scenarios.ipynb
 ```
 
-### 3. Economic Analysis
+### 3. Run Economic Analysis
+
 ```bash
-# Quantify detection value (marginal costs, 5-year projections)
+jupyter notebook 03_Revenue_analysis_N14.ipynb
+jupyter notebook 03_Revenue_analysis_N57.ipynb
 jupyter notebook 03_Revenue_analysis_N300.ipynb
+```
+
+### 4. Run Scripted Validation Analyses
+
+The scripted workflow reproduces the paired-impact and model-diagnostic analyses
+used to support the current manuscript results:
+
+```bash
+python3 scripts/validate_normal_attack_pairs.py
+python3 scripts/compute_paired_impact_metrics.py
+python3 scripts/classify_high_impact_attacks.py
+python3 scripts/build_revision_tables.py
+python3 scripts/plot_impact_quadrants.py
+python3 scripts/run_severity_conditioned_ml.py --systems N14 N57 N300 --n-jobs 1
+python3 scripts/run_feature_ablation_ml.py --systems N14 N57 N300 --n-iter 500 --n-jobs 1
+```
+
+For coordinated-attack stress testing on the IEEE 300-bus system:
+
+```bash
+python3 scripts/export_n300_heldout_normal_loads.py
+```
+
+Then generate the matched coordinated OPF samples in MATLAB and evaluate them:
+
+```bash
+python3 scripts/run_ood_stress_test_ml.py \
+  --ood-files \
+  "<one_generator_two_parameters_matched_file.csv>" \
+  "<two_generators_same_parameter_matched_file.csv>" \
+  --models CatBoost XGBoost "Random Forest" \
+  --n-iter 500 \
+  --n-jobs 1
 ```
 
 ## Experimental Configurations
 
-- **Systems**: IEEE 14-bus (5 gen), 57-bus (7 gen), 300-bus (69 gen)
-- **Train/Test Splits**: 80/20, 60/40, 40/60
-- **Scenarios**: Balanced (50% attacks), Imbalanced (25-37.5% attacks)
-- **Label Noise**: Clean and 3% corrupted variants
+- Systems: IEEE 14-bus, IEEE 57-bus, IEEE 300-bus
+- Train/test settings: 80/20, 60/40, 40/60
+- Class balance settings: balanced and imbalanced attack prevalence
+- Robustness settings: clean labels and noisy-label variants
+- Stress tests: coordinated multi-generator and multi-parameter attacks on
+  matched held-out 300-bus load profiles
 
 ## Models
 
-**Base Learners**: Random Forest, Extra Trees, Gradient Boosting, XGBoost, LightGBM, CatBoost, Logistic Regression, MLP
+The experiments evaluate tree ensembles, gradient boosting, linear models,
+neural networks, and voting/stacking ensembles, including:
 
-**Ensembles**: Soft Voting, TPR-Weighted Voting, Attack-Optimized Stacking, High-Recall Ensemble
+- Random Forest
+- Extra Trees
+- Gradient Boosting
+- XGBoost
+- LightGBM
+- CatBoost
+- Logistic Regression
+- Multi-layer Perceptron
+- Soft voting, TPR-weighted voting, high-recall, and stacking ensembles
 
-## Key Results
+## Key Outputs
 
-| System | Best F1 | Cost Ratio (TP/FN) |
-|--------|---------|-------------------|
-| 14-bus | 0.91 | 79× |
-| 57-bus | 0.80 | 6.2× |
-| 300-bus | 0.96 | 17× |
+The analysis reports:
 
-*Missed attacks cluster near normal operational costs; detected attacks show severe economic impact.*
+- detection accuracy, precision, recall, and F1-score across systems and data
+  settings;
+- attack-type recall for ramp-rate, capacity-limit, and economic-bid attacks;
+- paired normal-attack cost, dispatch, and line-flow impact metrics;
+- feature-family ablations to evaluate which operational signals drive model
+  performance;
+- coordinated-attack stress-test performance on the IEEE 300-bus system;
+- economic comparisons between missed and detected attack sets.
 
 ## Requirements
 
-```
+Python:
+
+```text
 numpy
 pandas
 scikit-learn
@@ -89,24 +162,19 @@ matplotlib
 seaborn
 ```
 
+MATLAB:
+
+```text
+MATPOWER
+Optimization Toolbox
+```
+
 ## Data Note
 
-Raw data files and results folders are excluded due to size. Regenerate using:
-1. Run OPF solvers on IEEE test cases in `Cases/`
-2. Execute attack injection via `OPF/` scripts
-3. Process with `01_data_EDA.ipynb`
-
-## Citation
-
-```bibtex
-@article{mitm_market_detection,
-  title={Market Operator Detection of Isolated Man-in-the-Middle Attacks 
-         on Wholesale Market Generator Bids via Machine Learning},
-  author={...},
-  journal={...},
-  year={...}
-}
-```
+The data are synthetic OPF outputs generated from the included case files and
+attack-injection routines. Large derived CSV files and trained model dumps are
+not meant to be committed directly. Regenerate missing derived artifacts from
+the corresponding OPF routine, notebook, or script.
 
 ## License
 

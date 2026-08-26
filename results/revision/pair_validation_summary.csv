@@ -1,0 +1,4 @@
+system,source_csv,raw_rows,rows_removed_infeasible,fval_sentinel_rows,all_opf_sentinel_rows,rows_after_filter,normal_rows_after_filter,attack_rows_after_filter,parsed_opf_iterations,valid_pairs,missing_attacked_season_pairs,parse_errors,valid_pairs_season_1,valid_pairs_season_2,valid_pairs_season_3,valid_pairs_season_4,valid_pairs_attack_type_1,valid_pairs_attack_type_2,valid_pairs_attack_type_3,valid_pairs_attack_type_4
+N14,data/N14_G5_transposed.csv,3792,0,0,0,3792,2000,1792,500,1792,208,0,445,462,440,445,419,441,484,448
+N57,data/N57_G7_transposed.csv,4000,9,9,9,3991,2000,1991,500,1991,9,0,498,500,496,497,544,467,476,504
+N300,data/N300_G69_transposed_new.csv,1920,0,0,0,1920,960,960,240,960,0,0,240,240,240,240,240,236,276,208

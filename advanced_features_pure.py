@@ -383,10 +383,10 @@ def calculate_normal_flow_and_angle_baselines(df, feature_store=None, is_trainin
     
     # Initialize deviation features
     for hour in range(N_HOURS):  # all hours
-        df[f'flow_deviation_h{hour}_mean'] = 0
-        df[f'flow_deviation_h{hour}_max'] = 0
-        df[f'angle_deviation_h{hour}_mean'] = 0
-        df[f'angle_deviation_h{hour}_max'] = 0
+        df[f'flow_deviation_h{hour}_mean'] = 0.0
+        df[f'flow_deviation_h{hour}_max'] = 0.0
+        df[f'angle_deviation_h{hour}_mean'] = 0.0
+        df[f'angle_deviation_h{hour}_max'] = 0.0
     
     for ssn in df['original_ssn'].unique():
         
@@ -1041,11 +1041,11 @@ def create_bus_baseline_distance_features(df, feature_store, is_training=True):
     
     # Initialize features
     for hour in range(N_HOURS):
-        df[f'bus_dist_h{hour}'] = 0
+        df[f'bus_dist_h{hour}'] = 0.0
     
-    df['bus_dist_mean'] = 0
-    df['bus_dist_max'] = 0
-    df['phantom_score'] = 0
+    df['bus_dist_mean'] = 0.0
+    df['bus_dist_max'] = 0.0
+    df['phantom_score'] = 0.0
     
     print("Calculating distances from baselines...")
     

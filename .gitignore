@@ -1,0 +1,61 @@
+# macOS and editor files
+.DS_Store
+**/.DS_Store
+.vscode/
+.idea/
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# LaTeX build artifacts
+.tectonic-cache/
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fls
+*.fdb_latexmk
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+main.pdf
+
+# Local manuscript draft files
+main.tex
+results_tables.tex
+
+# MATLAB editor backups
+*.asv
+
+# Large local/generated data products
+*OOD_*MatchedHeldout_N300_G69.csv
+data/*_transposed*.csv
+
+# Generated model dumps and legacy notebook output folders
+models/
+*.pkl
+*.joblib
+experiments_N14/
+experiments_N57/
+experiments_limited_attacks/
+economic_analysis_N14/
+economic_analysis_N57/
+economic_analysis_N300/
+
+# Bulky row-level revision outputs that can be regenerated
+results/revision/**/test_predictions.csv
+results/revision/**/predictions_with_impact.csv
+
+# Earlier draft variants of the impact-quadrant visualization
+results/revision/figures/figure_impact_quadrants*
+results/revision/figures/figure_impact_quadrant_summary*
+
+# Local plotting caches
+results/**/.matplotlib_cache/

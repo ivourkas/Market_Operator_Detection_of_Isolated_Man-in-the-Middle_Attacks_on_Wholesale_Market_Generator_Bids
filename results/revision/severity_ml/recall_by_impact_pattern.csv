@@ -1,0 +1,121 @@
+system,scenario_family,model,attack_rows,detected_rows,missed_rows,zero_response_rows,recall,impact_pattern
+N14,n14_n57_balanced_80_20,CatBoost,200,136,64,103,0.68,overall_attack
+N14,n14_n57_balanced_80_20,CatBoost,184,120,64,103,0.6521739130434783,weak_or_nonbinding_attack
+N14,n14_n57_balanced_80_20,CatBoost,4,4,0,0,1.0,economic_impact_attack
+N14,n14_n57_balanced_80_20,CatBoost,4,4,0,0,1.0,hidden_redispatch_attack
+N14,n14_n57_balanced_80_20,CatBoost,8,8,0,0,1.0,critical_attack
+N14,n14_n57_balanced_80_20,Extra Trees,200,122,78,103,0.61,overall_attack
+N14,n14_n57_balanced_80_20,Extra Trees,184,106,78,103,0.5760869565217391,weak_or_nonbinding_attack
+N14,n14_n57_balanced_80_20,Extra Trees,4,4,0,0,1.0,economic_impact_attack
+N14,n14_n57_balanced_80_20,Extra Trees,4,4,0,0,1.0,hidden_redispatch_attack
+N14,n14_n57_balanced_80_20,Extra Trees,8,8,0,0,1.0,critical_attack
+N14,n14_n57_balanced_80_20,Gradient Boosting,200,136,64,103,0.68,overall_attack
+N14,n14_n57_balanced_80_20,Gradient Boosting,184,120,64,103,0.6521739130434783,weak_or_nonbinding_attack
+N14,n14_n57_balanced_80_20,Gradient Boosting,4,4,0,0,1.0,economic_impact_attack
+N14,n14_n57_balanced_80_20,Gradient Boosting,4,4,0,0,1.0,hidden_redispatch_attack
+N14,n14_n57_balanced_80_20,Gradient Boosting,8,8,0,0,1.0,critical_attack
+N14,n14_n57_balanced_80_20,LightGBM,200,121,79,103,0.605,overall_attack
+N14,n14_n57_balanced_80_20,LightGBM,184,105,79,103,0.5706521739130435,weak_or_nonbinding_attack
+N14,n14_n57_balanced_80_20,LightGBM,4,4,0,0,1.0,economic_impact_attack
+N14,n14_n57_balanced_80_20,LightGBM,4,4,0,0,1.0,hidden_redispatch_attack
+N14,n14_n57_balanced_80_20,LightGBM,8,8,0,0,1.0,critical_attack
+N14,n14_n57_balanced_80_20,Logistic Regression,200,86,114,103,0.43,overall_attack
+N14,n14_n57_balanced_80_20,Logistic Regression,184,70,114,103,0.3804347826086957,weak_or_nonbinding_attack
+N14,n14_n57_balanced_80_20,Logistic Regression,4,4,0,0,1.0,economic_impact_attack
+N14,n14_n57_balanced_80_20,Logistic Regression,4,4,0,0,1.0,hidden_redispatch_attack
+N14,n14_n57_balanced_80_20,Logistic Regression,8,8,0,0,1.0,critical_attack
+N14,n14_n57_balanced_80_20,Neural Network,200,85,115,103,0.425,overall_attack
+N14,n14_n57_balanced_80_20,Neural Network,184,69,115,103,0.375,weak_or_nonbinding_attack
+N14,n14_n57_balanced_80_20,Neural Network,4,4,0,0,1.0,economic_impact_attack
+N14,n14_n57_balanced_80_20,Neural Network,4,4,0,0,1.0,hidden_redispatch_attack
+N14,n14_n57_balanced_80_20,Neural Network,8,8,0,0,1.0,critical_attack
+N14,n14_n57_balanced_80_20,Random Forest,200,124,76,103,0.62,overall_attack
+N14,n14_n57_balanced_80_20,Random Forest,184,108,76,103,0.5869565217391305,weak_or_nonbinding_attack
+N14,n14_n57_balanced_80_20,Random Forest,4,4,0,0,1.0,economic_impact_attack
+N14,n14_n57_balanced_80_20,Random Forest,4,4,0,0,1.0,hidden_redispatch_attack
+N14,n14_n57_balanced_80_20,Random Forest,8,8,0,0,1.0,critical_attack
+N14,n14_n57_balanced_80_20,XGBoost,200,123,77,103,0.615,overall_attack
+N14,n14_n57_balanced_80_20,XGBoost,184,107,77,103,0.5815217391304348,weak_or_nonbinding_attack
+N14,n14_n57_balanced_80_20,XGBoost,4,4,0,0,1.0,economic_impact_attack
+N14,n14_n57_balanced_80_20,XGBoost,4,4,0,0,1.0,hidden_redispatch_attack
+N14,n14_n57_balanced_80_20,XGBoost,8,8,0,0,1.0,critical_attack
+N300,n300_balanced_80_20,CatBoost,192,165,27,76,0.859375,overall_attack
+N300,n300_balanced_80_20,CatBoost,152,125,27,76,0.8223684210526315,weak_or_nonbinding_attack
+N300,n300_balanced_80_20,CatBoost,12,12,0,0,1.0,economic_impact_attack
+N300,n300_balanced_80_20,CatBoost,9,9,0,0,1.0,hidden_redispatch_attack
+N300,n300_balanced_80_20,CatBoost,19,19,0,0,1.0,critical_attack
+N300,n300_balanced_80_20,Extra Trees,192,97,95,76,0.5052083333333334,overall_attack
+N300,n300_balanced_80_20,Extra Trees,152,57,95,76,0.375,weak_or_nonbinding_attack
+N300,n300_balanced_80_20,Extra Trees,12,12,0,0,1.0,economic_impact_attack
+N300,n300_balanced_80_20,Extra Trees,9,9,0,0,1.0,hidden_redispatch_attack
+N300,n300_balanced_80_20,Extra Trees,19,19,0,0,1.0,critical_attack
+N300,n300_balanced_80_20,Gradient Boosting,192,167,25,76,0.8697916666666666,overall_attack
+N300,n300_balanced_80_20,Gradient Boosting,152,127,25,76,0.8355263157894737,weak_or_nonbinding_attack
+N300,n300_balanced_80_20,Gradient Boosting,12,12,0,0,1.0,economic_impact_attack
+N300,n300_balanced_80_20,Gradient Boosting,9,9,0,0,1.0,hidden_redispatch_attack
+N300,n300_balanced_80_20,Gradient Boosting,19,19,0,0,1.0,critical_attack
+N300,n300_balanced_80_20,LightGBM,192,163,29,76,0.8489583333333334,overall_attack
+N300,n300_balanced_80_20,LightGBM,152,123,29,76,0.8092105263157895,weak_or_nonbinding_attack
+N300,n300_balanced_80_20,LightGBM,12,12,0,0,1.0,economic_impact_attack
+N300,n300_balanced_80_20,LightGBM,9,9,0,0,1.0,hidden_redispatch_attack
+N300,n300_balanced_80_20,LightGBM,19,19,0,0,1.0,critical_attack
+N300,n300_balanced_80_20,Logistic Regression,192,86,106,76,0.4479166666666667,overall_attack
+N300,n300_balanced_80_20,Logistic Regression,152,46,106,76,0.3026315789473684,weak_or_nonbinding_attack
+N300,n300_balanced_80_20,Logistic Regression,12,12,0,0,1.0,economic_impact_attack
+N300,n300_balanced_80_20,Logistic Regression,9,9,0,0,1.0,hidden_redispatch_attack
+N300,n300_balanced_80_20,Logistic Regression,19,19,0,0,1.0,critical_attack
+N300,n300_balanced_80_20,Neural Network,192,75,117,76,0.390625,overall_attack
+N300,n300_balanced_80_20,Neural Network,152,48,104,76,0.3157894736842105,weak_or_nonbinding_attack
+N300,n300_balanced_80_20,Neural Network,12,6,6,0,0.5,economic_impact_attack
+N300,n300_balanced_80_20,Neural Network,9,5,4,0,0.5555555555555556,hidden_redispatch_attack
+N300,n300_balanced_80_20,Neural Network,19,16,3,0,0.8421052631578947,critical_attack
+N300,n300_balanced_80_20,Random Forest,192,166,26,76,0.8645833333333334,overall_attack
+N300,n300_balanced_80_20,Random Forest,152,126,26,76,0.8289473684210527,weak_or_nonbinding_attack
+N300,n300_balanced_80_20,Random Forest,12,12,0,0,1.0,economic_impact_attack
+N300,n300_balanced_80_20,Random Forest,9,9,0,0,1.0,hidden_redispatch_attack
+N300,n300_balanced_80_20,Random Forest,19,19,0,0,1.0,critical_attack
+N300,n300_balanced_80_20,XGBoost,192,167,25,76,0.8697916666666666,overall_attack
+N300,n300_balanced_80_20,XGBoost,152,127,25,76,0.8355263157894737,weak_or_nonbinding_attack
+N300,n300_balanced_80_20,XGBoost,12,12,0,0,1.0,economic_impact_attack
+N300,n300_balanced_80_20,XGBoost,9,9,0,0,1.0,hidden_redispatch_attack
+N300,n300_balanced_80_20,XGBoost,19,19,0,0,1.0,critical_attack
+N57,n14_n57_balanced_80_20,CatBoost,200,131,69,107,0.655,overall_attack
+N57,n14_n57_balanced_80_20,CatBoost,166,97,69,107,0.5843373493975904,weak_or_nonbinding_attack
+N57,n14_n57_balanced_80_20,CatBoost,6,6,0,0,1.0,economic_impact_attack
+N57,n14_n57_balanced_80_20,CatBoost,22,22,0,0,1.0,hidden_redispatch_attack
+N57,n14_n57_balanced_80_20,CatBoost,6,6,0,0,1.0,critical_attack
+N57,n14_n57_balanced_80_20,Extra Trees,200,80,120,107,0.4,overall_attack
+N57,n14_n57_balanced_80_20,Extra Trees,166,48,118,107,0.2891566265060241,weak_or_nonbinding_attack
+N57,n14_n57_balanced_80_20,Extra Trees,6,4,2,0,0.6666666666666666,economic_impact_attack
+N57,n14_n57_balanced_80_20,Extra Trees,22,22,0,0,1.0,hidden_redispatch_attack
+N57,n14_n57_balanced_80_20,Extra Trees,6,6,0,0,1.0,critical_attack
+N57,n14_n57_balanced_80_20,Gradient Boosting,200,134,66,107,0.67,overall_attack
+N57,n14_n57_balanced_80_20,Gradient Boosting,166,100,66,107,0.6024096385542169,weak_or_nonbinding_attack
+N57,n14_n57_balanced_80_20,Gradient Boosting,6,6,0,0,1.0,economic_impact_attack
+N57,n14_n57_balanced_80_20,Gradient Boosting,22,22,0,0,1.0,hidden_redispatch_attack
+N57,n14_n57_balanced_80_20,Gradient Boosting,6,6,0,0,1.0,critical_attack
+N57,n14_n57_balanced_80_20,LightGBM,200,134,66,107,0.67,overall_attack
+N57,n14_n57_balanced_80_20,LightGBM,166,100,66,107,0.6024096385542169,weak_or_nonbinding_attack
+N57,n14_n57_balanced_80_20,LightGBM,6,6,0,0,1.0,economic_impact_attack
+N57,n14_n57_balanced_80_20,LightGBM,22,22,0,0,1.0,hidden_redispatch_attack
+N57,n14_n57_balanced_80_20,LightGBM,6,6,0,0,1.0,critical_attack
+N57,n14_n57_balanced_80_20,Logistic Regression,200,78,122,107,0.39,overall_attack
+N57,n14_n57_balanced_80_20,Logistic Regression,166,46,120,107,0.27710843373493976,weak_or_nonbinding_attack
+N57,n14_n57_balanced_80_20,Logistic Regression,6,4,2,0,0.6666666666666666,economic_impact_attack
+N57,n14_n57_balanced_80_20,Logistic Regression,22,22,0,0,1.0,hidden_redispatch_attack
+N57,n14_n57_balanced_80_20,Logistic Regression,6,6,0,0,1.0,critical_attack
+N57,n14_n57_balanced_80_20,Neural Network,200,77,123,107,0.385,overall_attack
+N57,n14_n57_balanced_80_20,Neural Network,166,45,121,107,0.2710843373493976,weak_or_nonbinding_attack
+N57,n14_n57_balanced_80_20,Neural Network,6,4,2,0,0.6666666666666666,economic_impact_attack
+N57,n14_n57_balanced_80_20,Neural Network,22,22,0,0,1.0,hidden_redispatch_attack
+N57,n14_n57_balanced_80_20,Neural Network,6,6,0,0,1.0,critical_attack
+N57,n14_n57_balanced_80_20,Random Forest,200,134,66,107,0.67,overall_attack
+N57,n14_n57_balanced_80_20,Random Forest,166,100,66,107,0.6024096385542169,weak_or_nonbinding_attack
+N57,n14_n57_balanced_80_20,Random Forest,6,6,0,0,1.0,economic_impact_attack
+N57,n14_n57_balanced_80_20,Random Forest,22,22,0,0,1.0,hidden_redispatch_attack
+N57,n14_n57_balanced_80_20,Random Forest,6,6,0,0,1.0,critical_attack
+N57,n14_n57_balanced_80_20,XGBoost,200,134,66,107,0.67,overall_attack
+N57,n14_n57_balanced_80_20,XGBoost,166,100,66,107,0.6024096385542169,weak_or_nonbinding_attack
+N57,n14_n57_balanced_80_20,XGBoost,6,6,0,0,1.0,economic_impact_attack
+N57,n14_n57_balanced_80_20,XGBoost,22,22,0,0,1.0,hidden_redispatch_attack
+N57,n14_n57_balanced_80_20,XGBoost,6,6,0,0,1.0,critical_attack

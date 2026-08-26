@@ -1,0 +1,13 @@
+system,attack_type,attack_type_name,n_pairs,zero_response_pct,weak_or_nonbinding_attack_pct,economic_impact_attack_pct,hidden_redispatch_attack_pct,critical_attack_pct
+N14,1,ramp_rate,419,40.573,100.0,0.0,0.0,0.0
+N14,2,upper_limit,441,85.034,100.0,0.0,0.0,0.0
+N14,3,lower_limit,484,43.802,78.306,0.0,11.57,10.124
+N14,4,economic_bid,448,42.857,67.857,15.179,2.679,14.286
+N300,1,ramp_rate,240,69.167,98.75,0.0,1.25,0.0
+N300,2,upper_limit,236,59.746,86.864,0.0,5.508,7.627
+N300,3,lower_limit,276,10.87,78.986,7.971,3.986,9.058
+N300,4,economic_bid,208,48.077,81.731,5.769,2.885,9.615
+N57,1,ramp_rate,544,100.0,100.0,0.0,0.0,0.0
+N57,2,upper_limit,467,63.383,96.788,0.428,2.784,0.0
+N57,3,lower_limit,476,40.546,86.555,0.0,12.185,1.261
+N57,4,economic_bid,504,19.643,48.413,25.397,13.095,13.095
